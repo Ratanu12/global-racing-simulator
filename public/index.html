@@ -1,21 +1,15 @@
 <!doctype html>
 <html lang="hi">
 <head>
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>RacingRig India — PS5 Racing Simulator</title>
 
 <style>
+*{box-sizing:border-box}
 
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
@@ -53,9 +47,7 @@ nav{
   letter-spacing:1px;
 }
 
-.logo span{
-  color:#d8a942;
-}
+.logo span{color:#d8a942}
 
 .cart{
   border:1px solid #2d2a24;
@@ -75,9 +67,7 @@ main{
   text-align:left;
 }
 
-.hero-inner{
-  max-width:900px;
-}
+.hero-inner{max-width:900px}
 
 .tag{
   color:#e3c36b;
@@ -140,14 +130,19 @@ h1{
   transition:.2s;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
-}
+.btn:hover{transform:translateY(-2px)}
 
 .buy{
   background:linear-gradient(90deg,#8d650d,#e0b85d);
   color:#fff;
   min-width:270px;
+}
+
+.enquire{
+  background:#171717;
+  border:1px solid #4a402d;
+  color:#e0bd62;
+  min-width:180px;
 }
 
 .note{
@@ -279,21 +274,13 @@ h1{
   gap:28px;
 }
 
-.product-small .product-image{
-  height:380px;
-}
+.product-small .product-image{height:380px}
 
-.product-small .product-content{
-  padding:28px;
-}
+.product-small .product-content{padding:28px}
 
-.product-small .product-title{
-  font-size:28px;
-}
+.product-small .product-title{font-size:28px}
 
-.product-small .product-description{
-  font-size:16px;
-}
+.product-small .product-description{font-size:16px}
 
 section.info-section{
   padding:65px 5%;
@@ -348,6 +335,10 @@ section.info-section{
   line-height:1.75;
 }
 
+.policy-box a{
+  color:#d8a942;
+}
+
 .steps{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -366,9 +357,7 @@ section.info-section{
   font-size:28px;
 }
 
-.step p{
-  color:#aaa49b;
-}
+.step p{color:#aaa49b}
 
 .final-cta{
   margin:30px 5% 70px;
@@ -504,34 +493,22 @@ footer{
 
 @media(max-width:800px){
 
-  nav{
-    padding:0 4%;
-  }
+  nav{padding:0 4%}
 
-  .logo{
-    font-size:20px;
-  }
+  .logo{font-size:20px}
 
   .cart{
     padding:11px 14px;
     font-size:14px;
   }
 
-  .hero{
-    padding:50px 5% 30px;
-  }
+  .hero{padding:50px 5% 30px}
 
-  h1{
-    letter-spacing:-1px;
-  }
+  h1{letter-spacing:-1px}
 
-  .lead{
-    font-size:17px;
-  }
+  .lead{font-size:17px}
 
-  .product-image{
-    height:400px;
-  }
+  .product-image{height:400px}
 
   .product-small-grid{
     grid-template-columns:1fr;
@@ -547,71 +524,47 @@ footer{
     flex-direction:column;
   }
 
-  .product-bottom .buy{
+  .product-bottom .buy,
+  .product-bottom .enquire{
     width:100%;
   }
-
 }
 
 @media(max-width:480px){
 
-  .top{
-    font-size:11px;
-  }
+  .top{font-size:11px}
 
-  nav{
-    min-height:66px;
-  }
+  nav{min-height:66px}
 
-  .logo{
-    font-size:18px;
-  }
+  .logo{font-size:18px}
 
   .cart{
     font-size:12px;
     padding:10px;
   }
 
-  .hero{
-    padding-top:40px;
-  }
+  .hero{padding-top:40px}
 
-  h1{
-    font-size:43px;
-  }
+  h1{font-size:43px}
 
-  .new{
-    font-size:38px;
-  }
+  .new{font-size:38px}
 
-  .product-image{
-    height:300px;
-  }
+  .product-image{height:300px}
 
-  .product-small .product-image{
-    height:300px;
-  }
+  .product-small .product-image{height:300px}
 
-  .product-content{
-    padding:25px;
-  }
+  .product-content{padding:25px}
 
-  .product-title{
-    font-size:28px;
-  }
+  .product-title{font-size:28px}
 
-  .product-description{
-    font-size:16px;
-  }
+  .product-description{font-size:16px}
 
   .features,
   .steps{
     grid-template-columns:1fr;
   }
 
-  .feature{
-    min-height:auto;
-  }
+  .feature{min-height:auto}
 
   .final-cta{
     margin-left:5%;
@@ -619,23 +572,20 @@ footer{
     padding:50px 20px;
   }
 
-  .buy{
+  .buy,
+  .enquire{
     width:100%;
   }
-
 }
 
 </style>
 </head>
 
-
 <body>
-
 
 <div class="top">
 🚚 Pan-India Delivery • Secure Checkout • Order Confirmation
 </div>
-
 
 <nav>
 
@@ -649,9 +599,7 @@ footer{
 
 </nav>
 
-
 <main>
-
 
 <!-- HERO -->
 
@@ -676,17 +624,11 @@ footer{
 
     <div class="price">
 
-      <span class="old">
-        ₹69,999
-      </span>
+      <span class="old">₹69,999</span>
 
-      <span class="new">
-        ₹59,999
-      </span>
+      <span class="new">₹59,999</span>
 
-      <span class="save">
-        SAVE 14%
-      </span>
+      <span class="save">SAVE 14%</span>
 
     </div>
 
@@ -720,7 +662,6 @@ footer{
     Choose your racing setup
   </h2>
 
-
   <div class="products">
 
 
@@ -736,16 +677,13 @@ footer{
           alt="Premium Racing Simulator Cockpit"
         >
 
-        <div class="badge-number">
-          01
-        </div>
+        <div class="badge-number">01</div>
 
         <div class="badge-premium">
           PREMIUM
         </div>
 
       </div>
-
 
       <div class="product-content">
 
@@ -801,16 +739,13 @@ footer{
             alt="Apex Cockpit GT Edition"
           >
 
-          <div class="badge-number">
-            02
-          </div>
+          <div class="badge-number">02</div>
 
           <div class="badge-premium">
             PREMIUM
           </div>
 
         </div>
-
 
         <div class="product-content">
 
@@ -834,13 +769,13 @@ footer{
               <small>onwards</small>
             </div>
 
-            <button
-              class="btn buy"
-              type="button"
-              onclick="openCheckout()"
+            <a
+              class="btn enquire"
+              href="#contact"
+              style="text-decoration:none;text-align:center"
             >
-              Buy Now
-            </button>
+              Enquire
+            </a>
 
           </div>
 
@@ -861,16 +796,13 @@ footer{
             alt="PlayStation 5 Slim"
           >
 
-          <div class="badge-number">
-            03
-          </div>
+          <div class="badge-number">03</div>
 
           <div class="badge-premium">
             PREMIUM
           </div>
 
         </div>
-
 
         <div class="product-content">
 
@@ -894,13 +826,13 @@ footer{
               ₹51,999
             </div>
 
-            <button
-              class="btn buy"
-              type="button"
-              onclick="openCheckout()"
+            <a
+              class="btn enquire"
+              href="#contact"
+              style="text-decoration:none;text-align:center"
             >
-              Buy Now
-            </button>
+              Enquire
+            </a>
 
           </div>
 
@@ -923,16 +855,13 @@ footer{
           alt="PS5 Gaming Setup"
         >
 
-        <div class="badge-number">
-          04
-        </div>
+        <div class="badge-number">04</div>
 
         <div class="badge-premium">
           PREMIUM
         </div>
 
       </div>
-
 
       <div class="product-content">
 
@@ -969,7 +898,6 @@ footer{
 
     </div>
 
-
   </div>
 
 </section>
@@ -987,13 +915,9 @@ footer{
 
     <div class="feature">
 
-      <div class="feature-icon">
-        🏎️
-      </div>
+      <div class="feature-icon">🏎️</div>
 
-      <b>
-        Racing Seat
-      </b>
+      <b>Racing Seat</b>
 
       <span class="muted">
         Comfortable cockpit-style racing seat.
@@ -1001,16 +925,11 @@ footer{
 
     </div>
 
-
     <div class="feature">
 
-      <div class="feature-icon">
-        🎮
-      </div>
+      <div class="feature-icon">🎮</div>
 
-      <b>
-        Steering + Pedals
-      </b>
+      <b>Steering + Pedals</b>
 
       <span class="muted">
         Racing controls for an immersive experience.
@@ -1018,16 +937,11 @@ footer{
 
     </div>
 
-
     <div class="feature">
 
-      <div class="feature-icon">
-        ⚙️
-      </div>
+      <div class="feature-icon">⚙️</div>
 
-      <b>
-        Gear Shifter
-      </b>
+      <b>Gear Shifter</b>
 
       <span class="muted">
         Manual-style gear shifting setup.
@@ -1035,16 +949,11 @@ footer{
 
     </div>
 
-
     <div class="feature">
 
-      <div class="feature-icon">
-        🖥️
-      </div>
+      <div class="feature-icon">🖥️</div>
 
-      <b>
-        Display Ready
-      </b>
+      <b>Display Ready</b>
 
       <span class="muted">
         Front monitor/display mounting setup.
@@ -1069,30 +978,22 @@ footer{
 
     <div class="step">
       <strong>01</strong>
-      <p>
-        Buy Now
-      </p>
+      <p>Buy Now</p>
     </div>
 
     <div class="step">
       <strong>02</strong>
-      <p>
-        Enter delivery address
-      </p>
+      <p>Enter delivery address</p>
     </div>
 
     <div class="step">
       <strong>03</strong>
-      <p>
-        Review your order
-      </p>
+      <p>Review your order</p>
     </div>
 
     <div class="step">
       <strong>04</strong>
-      <p>
-        Secure payment
-      </p>
+      <p>Secure payment</p>
     </div>
 
   </div>
@@ -1120,16 +1021,9 @@ footer{
 
     <p>
       📧 Email:
-      <strong>
-        YOUR-EMAIL@example.com
-      </strong>
-    </p>
-
-    <p>
-      📞 Phone:
-      <strong>
-        YOUR-MOBILE-NUMBER
-      </strong>
+      <a href="mailto:ownerm342@gmail.com">
+        <strong>ownerm342@gmail.com</strong>
+      </a>
     </p>
 
     <p>
@@ -1170,8 +1064,8 @@ footer{
     </p>
 
     <p>
-      Customers will be provided with relevant order or delivery
-      updates using the contact information supplied during checkout.
+      Customers will receive relevant order or delivery updates
+      using the contact information supplied during checkout.
     </p>
 
     <p>
@@ -1331,4 +1225,19 @@ footer{
 
     <p>
       Refund eligibility depends on the order status, product
-      availability and applicable return/cancellation condition
+      availability and applicable return/cancellation conditions.
+    </p>
+
+    <p>
+      If a refund is approved, it will normally be processed through
+      the original payment method or another supported method.
+    </p>
+
+    <p>
+      If a product arrives damaged, incorrect or defective, the
+      customer should contact support promptly with relevant
+      photographs or supporting information.
+    </p>
+
+    <p>
+      Refunds and cancellations are subject to verif
