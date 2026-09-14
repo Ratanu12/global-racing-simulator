@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="hi">
 <head>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>RacingRig India — PS5 Racing Simulator</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -51,9 +53,8 @@ nav{
   letter-spacing:1px;
 }
 
-.logo i{
+.logo span{
   color:#d8a942;
-  font-style:normal;
 }
 
 .cart{
@@ -63,8 +64,6 @@ nav{
   color:#eee;
   font-size:15px;
 }
-
-/* HERO */
 
 main{
   max-width:1250px;
@@ -158,8 +157,6 @@ h1{
   max-width:650px;
 }
 
-/* PRODUCT SECTION */
-
 .products-section{
   padding:30px 5% 70px;
 }
@@ -181,8 +178,6 @@ h1{
   display:grid;
   gap:28px;
 }
-
-/* PRODUCT CARD */
 
 .product-card{
   background:#12100f;
@@ -278,8 +273,6 @@ h1{
   font-weight:normal;
 }
 
-/* SECONDARY PRODUCT GRID */
-
 .product-small-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -301,8 +294,6 @@ h1{
 .product-small .product-description{
   font-size:16px;
 }
-
-/* FEATURES */
 
 section.info-section{
   padding:65px 5%;
@@ -344,7 +335,18 @@ section.info-section{
   line-height:1.6;
 }
 
-/* STEPS */
+.policy-box{
+  background:#101010;
+  border:1px solid #29251f;
+  border-radius:18px;
+  padding:28px;
+}
+
+.policy-box p{
+  color:#aaa49b;
+  font-size:16px;
+  line-height:1.75;
+}
 
 .steps{
   display:grid;
@@ -368,8 +370,6 @@ section.info-section{
   color:#aaa49b;
 }
 
-/* FINAL CTA */
-
 .final-cta{
   margin:30px 5% 70px;
   padding:65px 30px;
@@ -390,8 +390,6 @@ section.info-section{
   margin-bottom:30px;
 }
 
-/* CHECKOUT */
-
 .checkout{
   display:none;
   position:fixed;
@@ -410,6 +408,8 @@ section.info-section{
 
 .modal{
   width:min(560px,100%);
+  max-height:95vh;
+  overflow:auto;
   background:#0d0d0d;
   border:1px solid #393126;
   border-radius:20px;
@@ -480,8 +480,6 @@ section.info-section{
   margin-top:5px;
 }
 
-/* FOOTER */
-
 footer{
   text-align:center;
   padding:35px 20px;
@@ -491,7 +489,18 @@ footer{
   line-height:1.7;
 }
 
-/* MOBILE */
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  margin-bottom:20px;
+}
+
+.footer-links a{
+  color:#d8a942;
+  text-decoration:none;
+}
 
 @media(max-width:800px){
 
@@ -541,6 +550,7 @@ footer{
   .product-bottom .buy{
     width:100%;
   }
+
 }
 
 @media(max-width:480px){
@@ -612,22 +622,36 @@ footer{
   .buy{
     width:100%;
   }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <div class="top">
 🚚 Pan-India Delivery • Secure Checkout • Order Confirmation
 </div>
 
+
 <nav>
-  <div class="logo">RACING<span>RIG</span> INDIA</div>
-  <div class="cart">🛒 Cart (0)</div>
+
+  <div class="logo">
+    RACING<span>RIG</span> INDIA
+  </div>
+
+  <div class="cart">
+    🛒 Cart (0)
+  </div>
+
 </nav>
 
+
 <main>
+
 
 <!-- HERO -->
 
@@ -635,7 +659,9 @@ footer{
 
   <div class="hero-inner">
 
-    <span class="tag">🏁 PREMIUM RACING SIMULATOR</span>
+    <span class="tag">
+      🏁 PREMIUM RACING SIMULATOR
+    </span>
 
     <h1>
       Gear built for the<br>
@@ -649,12 +675,26 @@ footer{
     </p>
 
     <div class="price">
-      <span class="old">₹69,999</span>
-      <span class="new">₹59,999</span>
-      <span class="save">SAVE 14%</span>
+
+      <span class="old">
+        ₹69,999
+      </span>
+
+      <span class="new">
+        ₹59,999
+      </span>
+
+      <span class="save">
+        SAVE 14%
+      </span>
+
     </div>
 
-    <button class="btn buy" onclick="openCheckout()">
+    <button
+      class="btn buy"
+      type="button"
+      onclick="openCheckout()"
+    >
       BUY NOW — ₹59,999
     </button>
 
@@ -680,7 +720,9 @@ footer{
     Choose your racing setup
   </h2>
 
+
   <div class="products">
+
 
     <!-- PRODUCT 01 -->
 
@@ -694,10 +736,16 @@ footer{
           alt="Premium Racing Simulator Cockpit"
         >
 
-        <div class="badge-number">01</div>
-        <div class="badge-premium">PREMIUM</div>
+        <div class="badge-number">
+          01
+        </div>
+
+        <div class="badge-premium">
+          PREMIUM
+        </div>
 
       </div>
+
 
       <div class="product-content">
 
@@ -721,7 +769,11 @@ footer{
             ₹59,999
           </div>
 
-          <button class="btn buy" onclick="openCheckout()">
+          <button
+            class="btn buy"
+            type="button"
+            onclick="openCheckout()"
+          >
             Buy Now
           </button>
 
@@ -736,6 +788,9 @@ footer{
 
     <div class="product-small-grid">
 
+
+      <!-- PRODUCT 02 -->
+
       <div class="product-card product-small">
 
         <div class="product-image-wrap">
@@ -746,10 +801,16 @@ footer{
             alt="Apex Cockpit GT Edition"
           >
 
-          <div class="badge-number">02</div>
-          <div class="badge-premium">PREMIUM</div>
+          <div class="badge-number">
+            02
+          </div>
+
+          <div class="badge-premium">
+            PREMIUM
+          </div>
 
         </div>
+
 
         <div class="product-content">
 
@@ -769,10 +830,15 @@ footer{
           <div class="product-bottom">
 
             <div class="product-price">
-              ₹72,999 <small>onwards</small>
+              ₹72,999
+              <small>onwards</small>
             </div>
 
-            <button class="btn buy" onclick="openCheckout()">
+            <button
+              class="btn buy"
+              type="button"
+              onclick="openCheckout()"
+            >
               Buy Now
             </button>
 
@@ -782,6 +848,8 @@ footer{
 
       </div>
 
+
+      <!-- PRODUCT 03 -->
 
       <div class="product-card product-small">
 
@@ -793,10 +861,16 @@ footer{
             alt="PlayStation 5 Slim"
           >
 
-          <div class="badge-number">03</div>
-          <div class="badge-premium">PREMIUM</div>
+          <div class="badge-number">
+            03
+          </div>
+
+          <div class="badge-premium">
+            PREMIUM
+          </div>
 
         </div>
+
 
         <div class="product-content">
 
@@ -820,7 +894,11 @@ footer{
               ₹51,999
             </div>
 
-            <button class="btn buy" onclick="openCheckout()">
+            <button
+              class="btn buy"
+              type="button"
+              onclick="openCheckout()"
+            >
               Buy Now
             </button>
 
@@ -845,36 +923,16 @@ footer{
           alt="PS5 Gaming Setup"
         >
 
-        <div class="badge-number">04</div>
-        <div class="badge-premium">PREMIUM</div>
-
-      </div>
-
-      <div class="product-content">
-
-        <div class="category">
-          GAMING SETUP
+        <div class="badge-number">
+          04
         </div>
 
-        <h2 class="product-title">
-          PS5 Gaming Setup
-        </h2>
-    <!-- PRODUCT 04 -->
-
-    <div class="product-card product-small">
-
-      <div class="product-image-wrap">
-
-        <img
-          class="product-image"
-          src="/setup4.jpg"
-          alt="PS5 Gaming Setup"
-        >
-
-        <div class="badge-number">04</div>
-        <div class="badge-premium">PREMIUM</div>
+        <div class="badge-premium">
+          PREMIUM
+        </div>
 
       </div>
+
 
       <div class="product-content">
 
@@ -897,7 +955,11 @@ footer{
             ₹59,999
           </div>
 
-          <button class="btn buy" onclick="openCheckout()">
+          <button
+            class="btn buy"
+            type="button"
+            onclick="openCheckout()"
+          >
             Buy Now
           </button>
 
@@ -906,6 +968,7 @@ footer{
       </div>
 
     </div>
+
 
   </div>
 
@@ -916,40 +979,77 @@ footer{
 
 <section class="info-section">
 
-  <h2 class="title">What's Included</h2>
+  <h2 class="title">
+    What's Included
+  </h2>
 
   <div class="features">
 
     <div class="feature">
-      <div class="feature-icon">🏎️</div>
-      <b>Racing Seat</b>
+
+      <div class="feature-icon">
+        🏎️
+      </div>
+
+      <b>
+        Racing Seat
+      </b>
+
       <span class="muted">
         Comfortable cockpit-style racing seat.
       </span>
+
     </div>
 
+
     <div class="feature">
-      <div class="feature-icon">🎮</div>
-      <b>Steering + Pedals</b>
+
+      <div class="feature-icon">
+        🎮
+      </div>
+
+      <b>
+        Steering + Pedals
+      </b>
+
       <span class="muted">
         Racing controls for an immersive experience.
       </span>
+
     </div>
 
+
     <div class="feature">
-      <div class="feature-icon">⚙️</div>
-      <b>Gear Shifter</b>
+
+      <div class="feature-icon">
+        ⚙️
+      </div>
+
+      <b>
+        Gear Shifter
+      </b>
+
       <span class="muted">
         Manual-style gear shifting setup.
       </span>
+
     </div>
 
+
     <div class="feature">
-      <div class="feature-icon">🖥️</div>
-      <b>Display Ready</b>
+
+      <div class="feature-icon">
+        🖥️
+      </div>
+
+      <b>
+        Display Ready
+      </b>
+
       <span class="muted">
         Front monitor/display mounting setup.
       </span>
+
     </div>
 
   </div>
@@ -961,28 +1061,38 @@ footer{
 
 <section class="info-section">
 
-  <h2 class="title">How Ordering Works</h2>
+  <h2 class="title">
+    How Ordering Works
+  </h2>
 
   <div class="steps">
 
     <div class="step">
       <strong>01</strong>
-      <p>Buy Now</p>
+      <p>
+        Buy Now
+      </p>
     </div>
 
     <div class="step">
       <strong>02</strong>
-      <p>Enter delivery address</p>
+      <p>
+        Enter delivery address
+      </p>
     </div>
 
     <div class="step">
       <strong>03</strong>
-      <p>Review your order</p>
+      <p>
+        Review your order
+      </p>
     </div>
 
     <div class="step">
       <strong>04</strong>
-      <p>Secure payment</p>
+      <p>
+        Secure payment
+      </p>
     </div>
 
   </div>
@@ -990,390 +1100,235 @@ footer{
 </section>
 
 
-<!-- FINAL CTA -->
+<!-- CONTACT -->
 
-<div class="final-cta">
+<section
+  class="info-section"
+  id="contact"
+>
 
-  <h2>Ready to race?</h2>
+  <h2 class="title">
+    Contact Us
+  </h2>
 
-  <p>
-    Choose your RacingRig setup and continue
-    to secure checkout.
-  </p>
+  <div class="policy-box">
 
-  <button class="btn buy" onclick="openCheckout()">
-    BUY NOW — ₹59,999
-  </button>
-
-</div>
-
-</main>
-
-
-<!-- CHECKOUT POPUP -->
-
-<div id="checkout" class="checkout">
-
-  <div class="modal">
-
-    <button
-      class="close"
-      type="button"
-      onclick="closeCheckout()"
-    >
-      ×
-    </button>
-
-    <h2>Delivery Details</h2>
-
-    <p class="muted">
-      PS5 Racing Simulator Cockpit
+    <p>
+      For product enquiries, order assistance, delivery questions
+      and payment support, please contact RacingRig India.
     </p>
 
-    <form id="orderForm" class="form">
+    <p>
+      📧 Email:
+      <strong>
+        YOUR-EMAIL@example.com
+      </strong>
+    </p>
 
-      <input
-        name="name"
-        required
-        placeholder="Full Name"
-      >
+    <p>
+      📞 Phone:
+      <strong>
+        YOUR-MOBILE-NUMBER
+      </strong>
+    </p>
 
-      <input
-        name="phone"
-        required
-        placeholder="Mobile Number"
-        inputmode="numeric"
-      >
-
-      <input
-        name="email"
-        required
-        type="email"
-        placeholder="Email Address"
-      >
-
-      <input
-        name="pin"
-        required
-        placeholder="PIN Code"
-        inputmode="numeric"
-      >
-
-      <input
-        name="city"
-        required
-        placeholder="City"
-      >
-
-      <input
-        name="state"
-        required
-        placeholder="State"
-      >
-
-      <textarea
-        name="address"
-        required
-        placeholder="Full Delivery Address"
-      ></textarea>
-
-      <div class="total">
-
-        <span>Total</span>
-
-        <b>₹59,999</b>
-
-      </div>
-
-      <button
-        class="btn buy pay-btn"
-        type="submit"
-      >
-        PAY ₹59,999 SECURELY
-      </button>
-
-    </form>
-
-    <p class="note">
-      Your payment is processed securely through Razorpay.
-      Never share your payment or API credentials.
+    <p>
+      Customer support is available for genuine product,
+      order and delivery related queries.
     </p>
 
   </div>
 
-</div>
+</section>
 
 
-<!-- FOOTER -->
+<!-- SHIPPING -->
 
-<footer>
+<section
+  class="info-section"
+  id="shipping"
+>
 
-  © 2026 RacingRig India •
-  Terms • Privacy •
-  Shipping & Returns
+  <h2 class="title">
+    Shipping Policy
+  </h2>
 
-</footer>
+  <div class="policy-box">
 
+    <p>
+      We currently offer delivery within India.
+    </p>
 
-<!-- RAZORPAY -->
+    <p>
+      Orders are processed after successful payment confirmation
+      and subject to product availability.
+    </p>
 
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <p>
+      Estimated delivery time depends on the product,
+      destination, availability and courier service.
+    </p>
 
+    <p>
+      Customers will be provided with relevant order or delivery
+      updates using the contact information supplied during checkout.
+    </p>
 
-<!-- WEBSITE JAVASCRIPT -->
+    <p>
+      Delivery may be delayed due to holidays, weather,
+      courier issues or circumstances outside our control.
+    </p>
 
-<script>
+  </div>
 
-const modal = document.getElementById("checkout");
+</section>
 
 
-function openCheckout(){
+<!-- PRICING -->
 
-  if(!modal){
-    alert("Checkout load nahi hua.");
-    return;
-  }
+<section
+  class="info-section"
+  id="pricing"
+>
 
-  modal.classList.add("open");
+  <h2 class="title">
+    Pricing Details
+  </h2>
 
-  document.body.style.overflow = "hidden";
+  <div class="policy-box">
 
-}
+    <p>
+      All prices displayed on this website are in Indian Rupees (INR).
+    </p>
 
+    <p>
+      The final payable amount will be shown before the customer
+      completes payment.
+    </p>
 
-function closeCheckout(){
+    <p>
+      Product prices and availability may change based on actual
+      inventory and business requirements.
+    </p>
 
-  if(!modal) return;
+    <p>
+      Any applicable delivery charges will be communicated or
+      displayed before order completion.
+    </p>
 
-  modal.classList.remove("open");
+  </div>
 
-  document.body.style.overflow = "";
+</section>
 
-}
 
+<!-- TERMS -->
 
-/* Popup ke bahar click karne par close */
+<section
+  class="info-section"
+  id="terms"
+>
 
-modal.addEventListener("click", function(e){
+  <h2 class="title">
+    Terms & Conditions
+  </h2>
 
-  if(e.target === modal){
+  <div class="policy-box">
 
-    closeCheckout();
+    <p>
+      By placing an order through RacingRig India, the customer
+      confirms that the information provided during checkout is
+      accurate and complete.
+    </p>
 
-  }
+    <p>
+      Orders are subject to product availability and successful
+      payment confirmation.
+    </p>
 
-});
+    <p>
+      Product specifications, images, configurations and
+      availability should be checked before placing an order.
+    </p>
 
+    <p>
+      Customers are responsible for providing a correct delivery
+      address and reachable contact information.
+    </p>
 
-/* ESC button se popup close */
+    <p>
+      We may contact customers when necessary for order
+      confirmation, delivery or support.
+    </p>
 
-document.addEventListener("keydown", function(e){
+  </div>
 
-  if(e.key === "Escape"){
+</section>
 
-    closeCheckout();
 
-  }
+<!-- PRIVACY -->
 
-});
+<section
+  class="info-section"
+  id="privacy"
+>
 
+  <h2 class="title">
+    Privacy Policy
+  </h2>
 
-/* PAYMENT */
+  <div class="policy-box">
 
-const orderForm =
-  document.getElementById("orderForm");
+    <p>
+      RacingRig India may collect information such as name,
+      mobile number, email address and delivery address when
+      required to process an order.
+    </p>
 
+    <p>
+      This information is used for order processing, payment
+      verification, delivery and customer support.
+    </p>
 
-orderForm.addEventListener(
-  "submit",
-  async function(e){
+    <p>
+      Payment credentials such as card PIN, OTP or payment
+      passwords should never be shared with RacingRig India.
+    </p>
 
-    e.preventDefault();
+    <p>
+      Payments are processed through the payment gateway.
+      We do not intentionally store customers' complete card
+      or banking credentials.
+    </p>
 
+    <p>
+      Customer information may be shared with relevant service
+      providers when necessary to fulfil an order or comply
+      with applicable law.
+    </p>
 
-    const data =
-      Object.fromEntries(
-        new FormData(orderForm)
-      );
+  </div>
 
+</section>
 
-    try{
 
-      const response =
-        await fetch(
-          "/api/create-order",
-          {
-            method:"POST",
+<!-- REFUND -->
 
-            headers:{
-              "Content-Type":
-                "application/json"
-            },
+<section
+  class="info-section"
+  id="refund"
+>
 
-            body:JSON.stringify(data)
-          }
-        );
+  <h2 class="title">
+    Cancellation & Refund Policy
+  </h2>
 
+  <div class="policy-box">
 
-      const result =
-        await response.json();
+    <p>
+      Cancellation requests should be submitted as soon as possible
+      after placing an order and before dispatch, where applicable.
+    </p>
 
-
-      if(!response.ok){
-
-        throw new Error(
-          result.error ||
-          "Order create nahi ho saka."
-        );
-
-      }
-
-
-      /* DEMO ORDER */
-
-      if(result.demo){
-
-        alert(
-          "Demo Order Created!\n\n" +
-          "Order ID: " +
-          result.orderId
-        );
-
-        return;
-
-      }
-
-
-      /* RAZORPAY CHECK */
-
-      if(typeof Razorpay === "undefined"){
-
-        throw new Error(
-          "Razorpay load nahi hua. Page refresh karein."
-        );
-
-      }
-
-
-      const options = {
-
-        key: result.key,
-
-        amount: result.amount,
-
-        currency: result.currency,
-
-        name: "RacingRig India",
-
-        description:
-          "PS5 Racing Simulator Cockpit",
-
-        order_id: result.orderId,
-
-
-        prefill:{
-
-          name:data.name,
-
-          email:data.email,
-
-          contact:data.phone
-
-        },
-
-
-        theme:{
-
-          color:"#d8a942"
-
-        },
-
-
-        handler:
-          async function(payment){
-
-            try{
-
-              const verifyResponse =
-                await fetch(
-                  "/api/verify-payment",
-                  {
-                    method:"POST",
-
-                    headers:{
-                      "Content-Type":
-                        "application/json"
-                    },
-
-                    body:JSON.stringify({
-
-                      ...payment,
-
-                      customer:data
-
-                    })
-
-                  }
-                );
-
-
-              const verification =
-                await verifyResponse.json();
-
-
-              if(verification.success){
-
-                alert(
-                  "Payment verified successfully!\n\n" +
-                  "Order ID: " +
-                  verification.orderId
-                );
-
-                closeCheckout();
-
-              }else{
-
-                alert(
-                  verification.error ||
-                  "Payment verification failed."
-                );
-
-              }
-
-            }catch(error){
-
-              alert(
-                error.message ||
-                "Payment verification failed."
-              );
-
-            }
-
-          }
-
-      };
-
-
-      const razorpay =
-        new Razorpay(options);
-
-
-      razorpay.open();
-
-
-    }catch(error){
-
-      alert(
-        error.message ||
-        "Kuch problem aa gayi."
-      );
-
-    }
-
-  }
-);
-
-</script>
-
-</body>
-    </html>
+    <p>
+      Refund eligibility depends on the order status, product
+      availability and applicable return/cancellation condition
