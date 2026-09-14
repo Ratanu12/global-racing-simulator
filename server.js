@@ -1,36 +1,203 @@
-require("dotenv").config();
-const express=require("express"), path=require("path"), crypto=require("crypto");
-const Razorpay=require("razorpay");
-const app=express(); app.use(express.json()); app.use(express.static(path.join(__dirname,"public")));
+const express = require("express");
+const path = require("path");
+const crypto = require("crypto");
+const Razorpay = require("razorpay");
 
-let razorpay=null;
-if(process.env.RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET){
-  razorpay=new Razorpay({key_id:process.env.RAZORPAY_KEY_ID,key_secret:process.env.RAZORPAY_KEY_SECRET});
-}
-const PRICE=5999900;
+const app = express();
 
-app.post("/api/create-order",async(req,res)=>{
- try{
-  const {name,phone,email,pin,city,state,address}=req.body||{};
-  if(!name||!phone||!email||!pin||!city||!state||!address) return res.status(400).json({error:"Please fill all delivery details."});
-  const orderId="WEB-"+Date.now();
-  if(!razorpay) return res.json({demo:true,orderId});
-  const order=await razorpay.orders.create({amount:PRICE,currency:"INR",receipt:orderId,payment_capture:1,
-    notes:{name,phone,email,pin,city,state,address}});
-  res.json({key:process.env.RAZORPAY_KEY_ID,orderId:order.id,amount:order.amount,currency:order.currency});
- }catch(e){res.status(500).json({error:"Could not create payment order."});}
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const PRODUCTS = {
+  apex_pro: {
+    name: "Apex Cockpit — Pro",
+    amount: 59999
+  },
+  apex_gt: {
+    name: "Apex Cockpit — GT Edition",
+    amount: 72999
+  },
+  ps5_slim: {
+    name: "PlayStation 5 Slim",
+    amount: 51999
+  },
+  ps5_setup: {
+    name: "PS5 Gaming Setup",
+    amount: 59999
+  }
+};
+
+const razorpay = new Razorpay({
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET
 });
 
-app.post("/api/verify-payment",(req,res)=>{
- try{
-  const {razorpay_order_id,razorpay_payment_id,razorpay_signature,customer}=req.body;
-  if(!razorpay_order_id||!razorpay_payment_id||!razorpay_signature) return res.status(400).json({error:"Missing payment data."});
-  const expected=crypto.createHmac("sha256",process.env.RAZORPAY_KEY_SECRET)
-    .update(razorpay_order_id+"|"+razorpay_payment_id).digest("hex");
-  if(expected!==razorpay_signature) return res.status(400).json({error:"Payment verification failed."});
-  const orderId="ORD-"+Date.now();
-  console.log("PAID ORDER",orderId,{customer,razorpay_order_id,razorpay_payment_id});
-  res.json({success:true,orderId});
- }catch(e){res.status(500).json({error:"Verification error."});}
+app.post("/api/create-order", async (req, res) => {
+  try {
+    const {
+      productId,
+      name,
+      phone,
+      email,
+      pin,
+      city,
+      state,
+      address
+    } = req.body;
+
+    const product = PRODUCTS[productId];
+
+    if (!product) {
+      return res.status(400).json({
+        error: "Invalid product selected."
+      });
+    }
+
+    if (!name || !phone || !email || !pin || !city || !state || !address) {
+      return res.status(400).json({
+        error: "Please fill all delivery details."
+      });
+    }
+
+    const order = await razorpay.orders.create({
+      amount: product.amount * 100,
+      currency: "INR",
+      receipt: "RR-" + Date.now(),
+
+      notes: {
+        productId,
+        productName: product.name,
+        customerName: name,
+        customerEmail: email,
+        customerPhone: phone,
+        pin,
+        city,
+        state
+      }
+    });
+
+    res.json({
+      success: true,
+      key: process.env.RAZORPAY_KEY_ID,
+      orderId: order.id,
+      amount: order.amount,
+      currency: order.currency,
+      productId,
+      productName: product.name
+    });
+
+  } catch (error) {
+    console.error("CREATE ORDER ERROR:", error);
+
+    res.status(500).json({
+      error: "Payment order create nahi ho saka."
+    });
+  }
 });
-app.listen(process.env.PORT||3000,()=>console.log("RacingRig running on http://localhost:"+(process.env.PORT||3000)));
+
+app.post("/api/verify-payment", async (req, res) => {
+  try {
+    const {
+      razorpay_order_id,
+      razorpay_payment_id,
+      razorpay_signature,
+      productId
+    } = req.body;
+
+    if (
+      !razorpay_order_id ||
+      !razorpay_payment_id ||
+      !razorpay_signature
+    ) {
+      return res.status(400).json({
+        success: false,
+        error: "Payment information incomplete."
+      });
+    }
+
+    const generatedSignature = crypto
+      .createHmac(
+        "sha256",
+        process.env.RAZORPAY_KEY_SECRET
+      )
+      .update(
+        razorpay_order_id + "|" + razorpay_payment_id
+      )
+      .digest("hex");
+
+    const generatedBuffer =
+      Buffer.from(generatedSignature, "utf8");
+
+    const providedBuffer =
+      Buffer.from(razorpay_signature, "utf8");
+
+    if (
+      generatedBuffer.length !== providedBuffer.length ||
+      !crypto.timingSafeEqual(
+        generatedBuffer,
+        providedBuffer
+      )
+    ) {
+      return res.status(400).json({
+        success: false,
+        error: "Payment verification failed."
+      });
+    }
+
+    const product = PRODUCTS[productId];
+
+    if (!product) {
+      return res.status(400).json({
+        success: false,
+        error: "Invalid product."
+      });
+    }
+
+    console.log("PAYMENT VERIFIED:", {
+      orderId: razorpay_order_id,
+      paymentId: razorpay_payment_id,
+      productId,
+      productName: product.name,
+      amount: product.amount
+    });
+
+    res.json({
+      success: true,
+      orderId: razorpay_order_id,
+      paymentId: razorpay_payment_id,
+      productName: product.name
+    });
+
+  } catch (error) {
+    console.error("VERIFY PAYMENT ERROR:", error);
+
+    res.status(500).json({
+      success: false,
+      error: "Payment verification error."
+    });
+  }
+});
+
+app.use(
+  express.static(
+    path.join(__dirname, "public")
+  )
+);
+
+app.use((req, res) => {
+  res.sendFile(
+    path.join(
+      __dirname,
+      "public",
+      "index.html"
+    )
+  );
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(
+    `RacingRig India running on port ${PORT}`
+  );
+});
