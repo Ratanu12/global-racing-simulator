@@ -1,69 +1,752 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RacingRig India — PS5 Racing Simulator</title>
-<style>
-*{box-sizing:border-box}body{margin:0;background:#070a0f;color:#f5f7fb;font-family:Arial,sans-serif}.top{text-align:center;background:#101722;color:#aebbd0;padding:9px;font-size:13px}
-nav{height:66px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #202a38;background:#080b11}.logo{font-size:21px;font-weight:900}.logo i{color:#00b9ff;font-style:normal}.cart{color:#aebbd0}
-main{max-width:1200px;margin:auto}.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:45px 6%;align-items:center}.tag{color:#39c9ff;background:#0d2635;border:1px solid #14506d;padding:8px 12px;border-radius:30px;display:inline-block;font-size:12px;font-weight:bold}
-h1{font-size:clamp(38px,5vw,62px);line-height:1;margin:18px 0}.lead{color:#aeb9ca;line-height:1.6;font-size:17px}.price{margin:22px 0}.old{text-decoration:line-through;color:#65738a}.new{font-size:39px;font-weight:900;margin:0 9px}.save{color:#4ce18a;font-weight:bold}.btn{border:0;border-radius:10px;padding:15px 22px;font-size:16px;font-weight:900;cursor:pointer}.buy{background:#00b9ff;color:#001018}.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px}.gallery img{width:100%;height:190px;object-fit:cover;border-radius:15px;border:1px solid #263447}.gallery img:first-child{grid-column:1/3;height:330px}
-section{padding:42px 6%}.title{font-size:29px;margin:0 0 20px}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.feature,.box{background:#0d131c;border:1px solid #202d3d;border-radius:14px;padding:20px}.feature b{display:block;margin:7px 0}.muted{color:#8f9db1;font-size:14px;line-height:1.5}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step strong{color:#00b9ff}.checkout{display:none;position:fixed;inset:0;background:#000b;z-index:10;padding:15px;overflow:auto}.checkout.open{display:flex;justify-content:center;align-items:center}.modal{width:min(560px,100%);background:#0b1119;border:1px solid #2a394d;border-radius:17px;padding:24px}.close{float:right;background:none;border:0;color:#aaa;font-size:27px}.form{display:grid;gap:10px;margin-top:15px}.form input,.form textarea{width:100%;padding:13px;border:1px solid #2a394d;border-radius:9px;background:#060a0f;color:white}.form textarea{min-height:85px}.total{display:flex;justify-content:space-between;background:#070b10;padding:14px;border-radius:9px}.note{font-size:12px;color:#7e8da1;line-height:1.5}footer{text-align:center;padding:28px;color:#718096;border-top:1px solid #1d2634}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.features,.steps{grid-template-columns:1fr 1fr}.navlinks{display:none}}@media(max-width:480px){.features,.steps{grid-template-columns:1fr}}
-</style></head>
-<body>
-<div class="top">🚚 Pan-India Delivery • Secure Checkout • Order Confirmation</div>
-<nav><div class="logo">RACING<i>RIG</i> INDIA</div><div class="cart">PS5 Racing Simulator</div></nav>
-<main>
-<div class="hero">
-<div><span class="tag">🔥 PREMIUM RACING SIMULATOR</span><h1>PS5 Racing<br>Simulator Cockpit</h1>
-<p class="lead">Racing seat, steering, pedals, shifter and display-ready cockpit — built for an immersive racing experience.</p>
-<div class="price"><span class="old">₹69,999</span><span class="new">₹59,999</span><span class="save">SAVE 14%</span></div>
-<button class="btn buy" onclick="openCheckout()">BUY NOW — ₹59,999</button>
-<p class="note">Product specifications, included components and delivery terms should match your actual inventory.</p></div>
-<div class="gallery"><img src="/setup1.jpg"><img src="/setup2.jpg"><img src="/setup3.jpg"><img src="/setup4.jpg"></div>
-<section><h2 class="title">What's Included</h2><div class="features">
-<div class="feature">🏎️<b>Racing Seat</b><span class="muted">Cockpit-style seating.</span></div>
-<div class="feature">🎮<b>Steering + Pedals</b><span class="muted">Immersive racing controls.</span></div>
-<div class="feature">⚙️<b>Gear Shifter</b><span class="muted">Manual-style shifting.</span></div>
-<div class="feature">🖥️<b>Display Ready</b><span class="muted">Front monitor/display setup.</span></div>
-</div></section>
-<section><h2 class="title">How Ordering Works</h2><div class="steps"><div class="box"><strong>01</strong><p>Buy Now</p></div><div class="box"><strong>02</strong><p>Enter address</p></div><div class="box"><strong>03</strong><p>Review order</p></div><div class="box"><strong>04</strong><p>Secure payment</p></div></div></section>
-</main>
-<footer>© 2026 RacingRig India • Terms • Privacy • Shipping & Returns</footer>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RacingRig India — Premium Racing Simulator</title>
 
-<div id="checkout" class="checkout"><div class="modal"><button class="close" onclick="closeCheckout()">×</button>
-<h2>Delivery Details</h2><p class="muted">PS5 Racing Simulator Cockpit</p>
-<form id="orderForm" class="form">
-<input name="name" required placeholder="Full Name"><input name="phone" required placeholder="Mobile Number" inputmode="numeric">
-<input name="email" required type="email" placeholder="Email Address"><input name="pin" required placeholder="PIN Code">
-<input name="city" required placeholder="City"><input name="state" required placeholder="State">
-<textarea name="address" required placeholder="Full Delivery Address"></textarea>
-<div class="total"><span>Total</span><b>₹59,999</b></div>
-<button class="btn buy" type="submit">PAY ₹59,999 SECURELY</button>
-</form><p class="note">Live payments require your own merchant account and server-side payment verification. Do not put secret API keys in this page.</p>
-</div></div>
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:#080808;
+color:#f5f2eb;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+header{
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(8,8,8,.96);
+border-bottom:1px solid #242424;
+padding:18px 5%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+.logo span{
+color:#d6aa4c;
+}
+
+.cart{
+border:1px solid #292929;
+padding:12px 20px;
+border-radius:12px;
+font-size:15px;
+}
+
+.hero{
+padding:75px 5% 50px;
+max-width:1250px;
+margin:auto;
+}
+
+.badge{
+display:inline-block;
+border:1px solid #8d6b24;
+background:#17130b;
+color:#e5bd67;
+padding:11px 18px;
+border-radius:30px;
+font-size:14px;
+letter-spacing:1px;
+margin-bottom:25px;
+}
+
+h1{
+font-size:clamp(42px,7vw,78px);
+line-height:1.02;
+margin:0 0 22px;
+max-width:900px;
+}
+
+.subtitle{
+font-size:20px;
+line-height:1.7;
+color:#aaa;
+max-width:760px;
+margin-bottom:30px;
+}
+
+.price{
+display:flex;
+align-items:center;
+gap:15px;
+flex-wrap:wrap;
+margin:25px 0;
+}
+
+.old{
+text-decoration:line-through;
+color:#777;
+font-size:20px;
+}
+
+.new{
+font-size:48px;
+font-weight:800;
+}
+
+.save{
+color:#51d98b;
+font-size:18px;
+font-weight:bold;
+}
+
+.buy{
+display:block;
+width:100%;
+border:0;
+border-radius:13px;
+padding:19px 25px;
+font-size:20px;
+font-weight:700;
+cursor:pointer;
+background:linear-gradient(100deg,#805b08,#e0b963);
+color:white;
+box-shadow:0 10px 30px rgba(180,130,30,.15);
+}
+
+.buy:hover{
+filter:brightness(1.1);
+}
+
+.note{
+color:#777;
+font-size:14px;
+line-height:1.6;
+margin-top:18px;
+}
+
+.gallery{
+max-width:1250px;
+margin:20px auto 80px;
+padding:0 5%;
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:18px;
+}
+
+.photo{
+position:relative;
+overflow:hidden;
+border-radius:25px;
+background:#111;
+border:1px solid #242424;
+}
+
+.photo img{
+width:100%;
+height:100%;
+display:block;
+object-fit:cover;
+}
+
+.photo.big{
+min-height:500px;
+grid-row:span 2;
+}
+
+.photo.small{
+min-height:240px;
+}
+
+.number{
+position:absolute;
+top:18px;
+left:18px;
+background:#201c14;
+border:1px solid #80672e;
+color:#f0cf7c;
+padding:10px 14px;
+border-radius:30px;
+font-weight:bold;
+z-index:2;
+}
+
+.premium{
+position:absolute;
+top:18px;
+right:18px;
+background:linear-gradient(100deg,#654908,#d8b35f);
+color:white;
+padding:10px 16px;
+border-radius:25px;
+font-size:13px;
+letter-spacing:1px;
+z-index:2;
+}
+
+.section{
+max-width:1150px;
+margin:0 auto 80px;
+padding:0 5%;
+}
+
+.section h2{
+font-size:42px;
+margin-bottom:35px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.card{
+background:#11151d;
+border:1px solid #252b35;
+border-radius:22px;
+padding:28px;
+}
+
+.icon{
+font-size:28px;
+margin-bottom:20px;
+}
+
+.card h3{
+font-size:22px;
+margin:0 0 12px;
+}
+
+.card p{
+color:#999;
+line-height:1.6;
+margin:0;
+}
+
+.order{
+background:#111;
+border-top:1px solid #222;
+border-bottom:1px solid #222;
+padding:60px 5%;
+text-align:center;
+}
+
+.order h2{
+font-size:42px;
+margin:0 0 15px;
+}
+
+.order p{
+color:#999;
+font-size:18px;
+margin-bottom:30px;
+}
+
+.order .buy{
+max-width:550px;
+margin:auto;
+}
+
+footer{
+padding:35px 5%;
+text-align:center;
+color:#666;
+font-size:14px;
+line-height:1.8;
+}
+
+/* CHECKOUT */
+
+.checkout{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.82);
+z-index:100;
+overflow:auto;
+padding:25px;
+}
+
+.checkout.open{
+display:block;
+}
+
+.modal{
+max-width:550px;
+margin:40px auto;
+background:#11151d;
+border:1px solid #303640;
+border-radius:24px;
+padding:28px;
+}
+
+.close{
+float:right;
+border:0;
+background:#222;
+color:white;
+width:40px;
+height:40px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;
+}
+
+.modal h2{
+font-size:30px;
+margin-top:15px;
+}
+
+.muted{
+color:#888;
+}
+
+form{
+margin-top:25px;
+}
+
+input,textarea,select{
+width:100%;
+padding:15px;
+margin:8px 0 12px;
+border-radius:10px;
+border:1px solid #303640;
+background:#090b0f;
+color:white;
+font-size:16px;
+outline:none;
+}
+
+textarea{
+min-height:100px;
+resize:vertical;
+}
+
+.total{
+background:#19150d;
+border:1px solid #6f5725;
+padding:17px;
+border-radius:12px;
+margin:15px 0 20px;
+display:flex;
+justify-content:space-between;
+font-size:18px;
+}
+
+@media(max-width:800px){
+
+header{
+padding:15px 4%;
+}
+
+.logo{
+font-size:19px;
+}
+
+.cart{
+padding:10px 13px;
+}
+
+.hero{
+padding:55px 5% 30px;
+}
+
+h1{
+font-size:46px;
+}
+
+.subtitle{
+font-size:18px;
+}
+
+.new{
+font-size:42px;
+}
+
+.gallery{
+grid-template-columns:1fr;
+padding:0 5%;
+}
+
+.photo.big,
+.photo.small{
+min-height:auto;
+height:auto;
+}
+
+.photo img{
+height:auto;
+aspect-ratio:4/3;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.section h2,
+.order h2{
+font-size:34px;
+}
+
+.modal{
+margin:15px auto;
+padding:22px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">RACING<span>RIG</span> INDIA</div>
+<div class="cart">🛒 Cart (0)</div>
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="badge">🏁 PREMIUM RACING SIMULATOR</div>
+
+<h1>Gear built for the race you're chasing</h1>
+
+<p class="subtitle">
+Premium racing simulator cockpit setup with racing seat,
+steering wheel, pedals and shifter — designed for an immersive
+gaming experience.
+</p>
+
+<div class="price">
+<span class="old">₹69,999</span>
+<span class="new">₹59,999</span>
+<span class="save">SAVE 14%</span>
+</div>
+
+<button class="buy" onclick="openCheckout()">
+BUY NOW — ₹59,999
+</button>
+
+<p class="note">
+Product specifications, included components and delivery terms
+should match your actual inventory.
+</p>
+
+</section>
+
+
+<section class="gallery">
+
+<div class="photo big">
+<span class="number">01</span>
+<span class="premium">PREMIUM</span>
+<img src="/setup1.jpg" alt="Racing Simulator Cockpit">
+</div>
+
+<div class="photo small">
+<span class="number">02</span>
+<span class="premium">PREMIUM</span>
+<img src="/setup2.jpg" alt="Racing Simulator Setup">
+</div>
+
+<div class="photo small">
+<span class="number">03</span>
+<span class="premium">PREMIUM</span>
+<img src="/setup3.jpg" alt="PS5 Racing Setup">
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>What's Included</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🏎️</div>
+<h3>Racing Seat</h3>
+<p>Comfortable cockpit-style racing seat for extended gaming sessions.</p>
+</div>
+
+<div class="card">
+<div class="icon">🎮</div>
+<h3>Steering & Pedals</h3>
+<p>Racing controls designed for an immersive driving experience.</p>
+</div>
+
+<div class="card">
+<div class="icon">⚙️</div>
+<h3>Gear Shifter</h3>
+<p>Manual-style gear shifting setup for realistic racing gameplay.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Premium Setup</h2>
+
+<div class="photo" style="height:420px;">
+<span class="number">04</span>
+<span class="premium">RACINGRIG INDIA</span>
+<img src="/setup4.jpg" alt="Premium Racing Simulator">
+</div>
+
+</section>
+
+
+<section class="order">
+
+<h2>Ready to race?</h2>
+
+<p>
+Choose your RacingRig setup and continue to secure checkout.
+</p>
+
+<button class="buy" onclick="openCheckout()">
+BUY NOW — ₹59,999
+</button>
+
+</section>
+
+</main>
+
+
+<footer>
+© 2026 RacingRig India<br>
+Secure Checkout • Order Confirmation • Shipping & Returns
+</footer>
+
+
+<!-- CHECKOUT -->
+
+<div id="checkout" class="checkout">
+
+<div class="modal">
+
+<button class="close" onclick="closeCheckout()">×</button>
+
+<h2>Delivery Details</h2>
+
+<p class="muted">
+Racing Simulator Cockpit
+</p>
+
+<div class="total">
+<span>Total Amount</span>
+<strong>₹59,999</strong>
+</div>
+
+<form id="orderForm">
+
+<input
+name="name"
+required
+placeholder="पूरा नाम">
+
+<input
+name="phone"
+required
+type="tel"
+placeholder="मोबाइल नंबर">
+
+<input
+name="email"
+required
+type="email"
+placeholder="ईमेल पता">
+
+<input
+name="pin"
+required
+inputmode="numeric"
+placeholder="PIN Code">
+
+<input
+name="city"
+required
+placeholder="शहर">
+
+<input
+name="state"
+required
+placeholder="राज्य">
+
+<textarea
+name="address"
+required
+placeholder="पूरा डिलीवरी पता"></textarea>
+
+<button class="buy" type="submit">
+PAY ₹59,999 SECURELY
+</button>
+
+</form>
+
+<p class="muted" style="font-size:13px;margin-top:18px;">
+भुगतान Razorpay के सुरक्षित Checkout के माध्यम से किया जाएगा।
+</p>
+
+</div>
+</div>
+
+
 <script>
-const modal=document.getElementById('checkout');
-function openCheckout(){modal.classList.add('open')}function closeCheckout(){modal.classList.remove('open')}
-document.getElementById('orderForm').addEventListener('submit',async e=>{
- e.preventDefault();
- const data=Object.fromEntries(new FormData(e.target));
- try{
-  const r=await fetch('/api/create-order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
-  const j=await r.json();
-  if(!r.ok) throw new Error(j.error||'Unable to create order');
-  if(j.demo){alert('Demo order created. Add Razorpay keys in .env and run the server to enable live payment. Order ID: '+j.orderId);return;}
-  const options={key:j.key,amount:j.amount,currency:j.currency,name:'RacingRig India',description:'PS5 Racing Simulator Cockpit',order_id:j.orderId,
-   prefill:{name:data.name,email:data.email,contact:data.phone},
-   handler:async function(resp){
-    const vr=await fetch('/api/verify-payment',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...resp,customer:data})});
-    const v=await vr.json(); alert(v.success?'Payment verified. Order confirmed: '+v.orderId:(v.error||'Payment verification failed'));
-   }};
-  new Razorpay(options).open();
- }catch(err){alert(err.message)}
+
+const checkout =
+document.getElementById("checkout");
+
+function openCheckout(){
+checkout.classList.add("open");
+}
+
+function closeCheckout(){
+checkout.classList.remove("open");
+}
+
+document.getElementById("orderForm")
+.addEventListener("submit", async function(e){
+
+e.preventDefault();
+
+const form = new FormData(e.target);
+
+const data = {
+name: form.get("name"),
+phone: form.get("phone"),
+email: form.get("email"),
+pin: form.get("pin"),
+city: form.get("city"),
+state: form.get("state"),
+address: form.get("address")
+};
+
+try{
+
+const response = await fetch("/api/create-order",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
 });
+
+const result = await response.json();
+
+if(!response.ok){
+throw new Error(result.error || "Order बनाने में समस्या हुई");
+}
+
+if(result.demo){
+
+alert(
+"Test Order बन गया है। Razorpay Test Keys उपलब्ध होने पर Checkout शुरू किया जाएगा।"
+);
+
+return;
+}
+
+const options = {
+
+key: result.key,
+
+amount: result.amount,
+
+currency: result.currency || "INR",
+
+name: "RacingRig India",
+
+description: "Premium Racing Simulator",
+
+order_id: result.id,
+
+prefill:{
+name:data.name,
+email:data.email,
+contact:data.phone
+},
+
+theme:{
+color:"#d2a94f"
+},
+
+handler: async function(payment){
+
+try{
+
+const verifyResponse =
+await fetch("/api/verify-payment",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(payment)
+});
+
+const verify =
+await verifyResponse.json();
+
+if(verify.success){
+
+alert(
+"भुगतान सफल रहा! Order ID: " +
+(verify.orderId || result.id)
+);
+
+closeCheckout();
+
+}else{
+
+alert(
+"भुगतान सत्यापन में समस्या हुई। कृपया Support से संपर्क करें।"
+);
+
+}
+
+}catch(error){
+
+alert(
+"Payment verification में समस्या हुई।"
+);
+
+}
+
+},
+
+modal:{
+ondismiss:function(){
+console.log("Razorpay Checkout बंद किया गया");
+}
+}
+
+};
+
+const razorpay =
+new Razorpay(options);
+
+razorpay.open();
+
+}catch(error){
+
+alert(
+error.message || "Payment शुरू नहीं हो पाया।"
+);
+
+}
+
+});
+
 </script>
-<!-- Razorpay checkout is loaded only when the backend is configured; see server.js -->
+
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-</body></html>
+
+</body>
+</html>
