@@ -859,3 +859,521 @@ footer{
         <h2 class="product-title">
           PS5 Gaming Setup
         </h2>
+    <!-- PRODUCT 04 -->
+
+    <div class="product-card product-small">
+
+      <div class="product-image-wrap">
+
+        <img
+          class="product-image"
+          src="/setup4.jpg"
+          alt="PS5 Gaming Setup"
+        >
+
+        <div class="badge-number">04</div>
+        <div class="badge-premium">PREMIUM</div>
+
+      </div>
+
+      <div class="product-content">
+
+        <div class="category">
+          GAMING SETUP
+        </div>
+
+        <h2 class="product-title">
+          PS5 Gaming Setup
+        </h2>
+
+        <p class="product-description">
+          Complete PS5 gaming setup designed for an immersive
+          gaming and racing experience.
+        </p>
+
+        <div class="product-bottom">
+
+          <div class="product-price">
+            ₹59,999
+          </div>
+
+          <button class="btn buy" onclick="openCheckout()">
+            Buy Now
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="info-section">
+
+  <h2 class="title">What's Included</h2>
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="feature-icon">🏎️</div>
+      <b>Racing Seat</b>
+      <span class="muted">
+        Comfortable cockpit-style racing seat.
+      </span>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🎮</div>
+      <b>Steering + Pedals</b>
+      <span class="muted">
+        Racing controls for an immersive experience.
+      </span>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">⚙️</div>
+      <b>Gear Shifter</b>
+      <span class="muted">
+        Manual-style gear shifting setup.
+      </span>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🖥️</div>
+      <b>Display Ready</b>
+      <span class="muted">
+        Front monitor/display mounting setup.
+      </span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ORDER STEPS -->
+
+<section class="info-section">
+
+  <h2 class="title">How Ordering Works</h2>
+
+  <div class="steps">
+
+    <div class="step">
+      <strong>01</strong>
+      <p>Buy Now</p>
+    </div>
+
+    <div class="step">
+      <strong>02</strong>
+      <p>Enter delivery address</p>
+    </div>
+
+    <div class="step">
+      <strong>03</strong>
+      <p>Review your order</p>
+    </div>
+
+    <div class="step">
+      <strong>04</strong>
+      <p>Secure payment</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FINAL CTA -->
+
+<div class="final-cta">
+
+  <h2>Ready to race?</h2>
+
+  <p>
+    Choose your RacingRig setup and continue
+    to secure checkout.
+  </p>
+
+  <button class="btn buy" onclick="openCheckout()">
+    BUY NOW — ₹59,999
+  </button>
+
+</div>
+
+</main>
+
+
+<!-- CHECKOUT POPUP -->
+
+<div id="checkout" class="checkout">
+
+  <div class="modal">
+
+    <button
+      class="close"
+      type="button"
+      onclick="closeCheckout()"
+    >
+      ×
+    </button>
+
+    <h2>Delivery Details</h2>
+
+    <p class="muted">
+      PS5 Racing Simulator Cockpit
+    </p>
+
+    <form id="orderForm" class="form">
+
+      <input
+        name="name"
+        required
+        placeholder="Full Name"
+      >
+
+      <input
+        name="phone"
+        required
+        placeholder="Mobile Number"
+        inputmode="numeric"
+      >
+
+      <input
+        name="email"
+        required
+        type="email"
+        placeholder="Email Address"
+      >
+
+      <input
+        name="pin"
+        required
+        placeholder="PIN Code"
+        inputmode="numeric"
+      >
+
+      <input
+        name="city"
+        required
+        placeholder="City"
+      >
+
+      <input
+        name="state"
+        required
+        placeholder="State"
+      >
+
+      <textarea
+        name="address"
+        required
+        placeholder="Full Delivery Address"
+      ></textarea>
+
+      <div class="total">
+
+        <span>Total</span>
+
+        <b>₹59,999</b>
+
+      </div>
+
+      <button
+        class="btn buy pay-btn"
+        type="submit"
+      >
+        PAY ₹59,999 SECURELY
+      </button>
+
+    </form>
+
+    <p class="note">
+      Your payment is processed securely through Razorpay.
+      Never share your payment or API credentials.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  © 2026 RacingRig India •
+  Terms • Privacy •
+  Shipping & Returns
+
+</footer>
+
+
+<!-- RAZORPAY -->
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+<!-- WEBSITE JAVASCRIPT -->
+
+<script>
+
+const modal = document.getElementById("checkout");
+
+
+function openCheckout(){
+
+  if(!modal){
+    alert("Checkout load nahi hua.");
+    return;
+  }
+
+  modal.classList.add("open");
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+function closeCheckout(){
+
+  if(!modal) return;
+
+  modal.classList.remove("open");
+
+  document.body.style.overflow = "";
+
+}
+
+
+/* Popup ke bahar click karne par close */
+
+modal.addEventListener("click", function(e){
+
+  if(e.target === modal){
+
+    closeCheckout();
+
+  }
+
+});
+
+
+/* ESC button se popup close */
+
+document.addEventListener("keydown", function(e){
+
+  if(e.key === "Escape"){
+
+    closeCheckout();
+
+  }
+
+});
+
+
+/* PAYMENT */
+
+const orderForm =
+  document.getElementById("orderForm");
+
+
+orderForm.addEventListener(
+  "submit",
+  async function(e){
+
+    e.preventDefault();
+
+
+    const data =
+      Object.fromEntries(
+        new FormData(orderForm)
+      );
+
+
+    try{
+
+      const response =
+        await fetch(
+          "/api/create-order",
+          {
+            method:"POST",
+
+            headers:{
+              "Content-Type":
+                "application/json"
+            },
+
+            body:JSON.stringify(data)
+          }
+        );
+
+
+      const result =
+        await response.json();
+
+
+      if(!response.ok){
+
+        throw new Error(
+          result.error ||
+          "Order create nahi ho saka."
+        );
+
+      }
+
+
+      /* DEMO ORDER */
+
+      if(result.demo){
+
+        alert(
+          "Demo Order Created!\n\n" +
+          "Order ID: " +
+          result.orderId
+        );
+
+        return;
+
+      }
+
+
+      /* RAZORPAY CHECK */
+
+      if(typeof Razorpay === "undefined"){
+
+        throw new Error(
+          "Razorpay load nahi hua. Page refresh karein."
+        );
+
+      }
+
+
+      const options = {
+
+        key: result.key,
+
+        amount: result.amount,
+
+        currency: result.currency,
+
+        name: "RacingRig India",
+
+        description:
+          "PS5 Racing Simulator Cockpit",
+
+        order_id: result.orderId,
+
+
+        prefill:{
+
+          name:data.name,
+
+          email:data.email,
+
+          contact:data.phone
+
+        },
+
+
+        theme:{
+
+          color:"#d8a942"
+
+        },
+
+
+        handler:
+          async function(payment){
+
+            try{
+
+              const verifyResponse =
+                await fetch(
+                  "/api/verify-payment",
+                  {
+                    method:"POST",
+
+                    headers:{
+                      "Content-Type":
+                        "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                      ...payment,
+
+                      customer:data
+
+                    })
+
+                  }
+                );
+
+
+              const verification =
+                await verifyResponse.json();
+
+
+              if(verification.success){
+
+                alert(
+                  "Payment verified successfully!\n\n" +
+                  "Order ID: " +
+                  verification.orderId
+                );
+
+                closeCheckout();
+
+              }else{
+
+                alert(
+                  verification.error ||
+                  "Payment verification failed."
+                );
+
+              }
+
+            }catch(error){
+
+              alert(
+                error.message ||
+                "Payment verification failed."
+              );
+
+            }
+
+          }
+
+      };
+
+
+      const razorpay =
+        new Razorpay(options);
+
+
+      razorpay.open();
+
+
+    }catch(error){
+
+      alert(
+        error.message ||
+        "Kuch problem aa gayi."
+      );
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+    </html>
