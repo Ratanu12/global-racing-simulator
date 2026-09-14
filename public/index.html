@@ -1,752 +1,861 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>RacingRig India — Premium Racing Simulator</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>RacingRig India — PS5 Racing Simulator</title>
 
 <style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-background:#080808;
-color:#f5f2eb;
-font-family:Arial,Helvetica,sans-serif;
+*{
+  box-sizing:border-box;
 }
 
-header{
-position:sticky;
-top:0;
-z-index:20;
-background:rgba(8,8,8,.96);
-border-bottom:1px solid #242424;
-padding:18px 5%;
-display:flex;
-align-items:center;
-justify-content:space-between;
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:#070707;
+  color:#f5f3ee;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+.top{
+  text-align:center;
+  background:#101010;
+  color:#b9b0a0;
+  padding:10px 12px;
+  font-size:13px;
+  border-bottom:1px solid #211f1a;
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  min-height:74px;
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #24211b;
+  background:rgba(8,8,8,.96);
+  backdrop-filter:blur(12px);
 }
 
 .logo{
-font-size:24px;
-font-weight:700;
-letter-spacing:2px;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
-.logo span{
-color:#d6aa4c;
+.logo i{
+  color:#d8a942;
+  font-style:normal;
 }
 
 .cart{
-border:1px solid #292929;
-padding:12px 20px;
-border-radius:12px;
-font-size:15px;
+  border:1px solid #2d2a24;
+  border-radius:12px;
+  padding:13px 18px;
+  color:#eee;
+  font-size:15px;
+}
+
+/* HERO */
+
+main{
+  max-width:1250px;
+  margin:auto;
 }
 
 .hero{
-padding:75px 5% 50px;
-max-width:1250px;
-margin:auto;
+  padding:70px 5% 45px;
+  text-align:left;
 }
 
-.badge{
-display:inline-block;
-border:1px solid #8d6b24;
-background:#17130b;
-color:#e5bd67;
-padding:11px 18px;
-border-radius:30px;
-font-size:14px;
-letter-spacing:1px;
-margin-bottom:25px;
+.hero-inner{
+  max-width:900px;
+}
+
+.tag{
+  color:#e3c36b;
+  background:#17130b;
+  border:1px solid #795e20;
+  padding:11px 18px;
+  border-radius:30px;
+  display:inline-block;
+  font-size:13px;
+  font-weight:bold;
+  letter-spacing:.5px;
 }
 
 h1{
-font-size:clamp(42px,7vw,78px);
-line-height:1.02;
-margin:0 0 22px;
-max-width:900px;
+  font-size:clamp(42px,7vw,76px);
+  line-height:.98;
+  margin:25px 0 20px;
+  letter-spacing:-2px;
 }
 
-.subtitle{
-font-size:20px;
-line-height:1.7;
-color:#aaa;
-max-width:760px;
-margin-bottom:30px;
+.lead{
+  color:#a9a39a;
+  line-height:1.7;
+  font-size:19px;
+  max-width:760px;
 }
 
 .price{
-display:flex;
-align-items:center;
-gap:15px;
-flex-wrap:wrap;
-margin:25px 0;
+  margin:28px 0;
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
 }
 
 .old{
-text-decoration:line-through;
-color:#777;
-font-size:20px;
+  text-decoration:line-through;
+  color:#77736c;
+  font-size:21px;
 }
 
 .new{
-font-size:48px;
-font-weight:800;
+  font-size:44px;
+  font-weight:900;
 }
 
 .save{
-color:#51d98b;
-font-size:18px;
-font-weight:bold;
+  color:#55dc8a;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.btn{
+  border:0;
+  border-radius:12px;
+  padding:17px 25px;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
 }
 
 .buy{
-display:block;
-width:100%;
-border:0;
-border-radius:13px;
-padding:19px 25px;
-font-size:20px;
-font-weight:700;
-cursor:pointer;
-background:linear-gradient(100deg,#805b08,#e0b963);
-color:white;
-box-shadow:0 10px 30px rgba(180,130,30,.15);
-}
-
-.buy:hover{
-filter:brightness(1.1);
+  background:linear-gradient(90deg,#8d650d,#e0b85d);
+  color:#fff;
+  min-width:270px;
 }
 
 .note{
-color:#777;
-font-size:14px;
-line-height:1.6;
-margin-top:18px;
+  color:#77736d;
+  font-size:12px;
+  line-height:1.6;
+  max-width:650px;
 }
 
-.gallery{
-max-width:1250px;
-margin:20px auto 80px;
-padding:0 5%;
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:18px;
+/* PRODUCT SECTION */
+
+.products-section{
+  padding:30px 5% 70px;
 }
 
-.photo{
-position:relative;
-overflow:hidden;
-border-radius:25px;
-background:#111;
-border:1px solid #242424;
+.section-label{
+  color:#c9a85a;
+  font-size:13px;
+  letter-spacing:2px;
+  font-weight:bold;
+  margin-bottom:15px;
 }
 
-.photo img{
-width:100%;
-height:100%;
-display:block;
-object-fit:cover;
+.section-heading{
+  font-size:clamp(32px,5vw,48px);
+  margin:0 0 35px;
 }
 
-.photo.big{
-min-height:500px;
-grid-row:span 2;
+.products{
+  display:grid;
+  gap:28px;
 }
 
-.photo.small{
-min-height:240px;
+/* PRODUCT CARD */
+
+.product-card{
+  background:#12100f;
+  border:1px solid #28241e;
+  border-radius:25px;
+  overflow:hidden;
+  box-shadow:0 15px 50px rgba(0,0,0,.35);
 }
 
-.number{
-position:absolute;
-top:18px;
-left:18px;
-background:#201c14;
-border:1px solid #80672e;
-color:#f0cf7c;
-padding:10px 14px;
-border-radius:30px;
-font-weight:bold;
-z-index:2;
+.product-image-wrap{
+  position:relative;
+  background:#0c0c0c;
 }
 
-.premium{
-position:absolute;
-top:18px;
-right:18px;
-background:linear-gradient(100deg,#654908,#d8b35f);
-color:white;
-padding:10px 16px;
-border-radius:25px;
-font-size:13px;
-letter-spacing:1px;
-z-index:2;
+.product-image{
+  display:block;
+  width:100%;
+  height:520px;
+  object-fit:cover;
 }
 
-.section{
-max-width:1150px;
-margin:0 auto 80px;
-padding:0 5%;
+.badge-number{
+  position:absolute;
+  top:20px;
+  left:20px;
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:#19150e;
+  border:1px solid #745a24;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#e4c36c;
+  font-weight:bold;
+  font-size:17px;
 }
 
-.section h2{
-font-size:42px;
-margin-bottom:35px;
+.badge-premium{
+  position:absolute;
+  top:20px;
+  right:20px;
+  background:linear-gradient(90deg,#755513,#d9ad54);
+  color:#fff;
+  border-radius:25px;
+  padding:11px 18px;
+  font-size:13px;
+  letter-spacing:1px;
 }
 
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
+.product-content{
+  padding:34px 38px 38px;
 }
 
-.card{
-background:#11151d;
-border:1px solid #252b35;
-border-radius:22px;
-padding:28px;
+.category{
+  color:#c6a45b;
+  font-size:13px;
+  letter-spacing:2px;
+  margin-bottom:18px;
 }
 
-.icon{
-font-size:28px;
-margin-bottom:20px;
+.product-title{
+  font-size:34px;
+  margin:0 0 15px;
 }
 
-.card h3{
-font-size:22px;
-margin:0 0 12px;
+.product-description{
+  color:#9e9a94;
+  font-size:18px;
+  line-height:1.65;
+  max-width:800px;
 }
 
-.card p{
-color:#999;
-line-height:1.6;
-margin:0;
+.product-bottom{
+  margin-top:28px;
+  padding-top:25px;
+  border-top:1px solid #29251f;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
 }
 
-.order{
-background:#111;
-border-top:1px solid #222;
-border-bottom:1px solid #222;
-padding:60px 5%;
-text-align:center;
+.product-price{
+  color:#e2bd62;
+  font-size:34px;
+  font-weight:900;
 }
 
-.order h2{
-font-size:42px;
-margin:0 0 15px;
+.product-price small{
+  color:#77736c;
+  font-size:15px;
+  font-weight:normal;
 }
 
-.order p{
-color:#999;
-font-size:18px;
-margin-bottom:30px;
+/* SECONDARY PRODUCT GRID */
+
+.product-small-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
 }
 
-.order .buy{
-max-width:550px;
-margin:auto;
+.product-small .product-image{
+  height:380px;
 }
 
-footer{
-padding:35px 5%;
-text-align:center;
-color:#666;
-font-size:14px;
-line-height:1.8;
+.product-small .product-content{
+  padding:28px;
+}
+
+.product-small .product-title{
+  font-size:28px;
+}
+
+.product-small .product-description{
+  font-size:16px;
+}
+
+/* FEATURES */
+
+section.info-section{
+  padding:65px 5%;
+}
+
+.title{
+  font-size:38px;
+  margin:0 0 28px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.feature{
+  background:#10141c;
+  border:1px solid #252d38;
+  border-radius:18px;
+  padding:28px;
+  min-height:190px;
+}
+
+.feature-icon{
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+.feature b{
+  display:block;
+  font-size:21px;
+  margin-bottom:10px;
+}
+
+.muted{
+  color:#9298a2;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* STEPS */
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.step{
+  background:#101010;
+  border:1px solid #29251f;
+  border-radius:18px;
+  padding:25px;
+}
+
+.step strong{
+  color:#d5ad54;
+  font-size:28px;
+}
+
+.step p{
+  color:#aaa49b;
+}
+
+/* FINAL CTA */
+
+.final-cta{
+  margin:30px 5% 70px;
+  padding:65px 30px;
+  text-align:center;
+  background:linear-gradient(180deg,#15120c,#0d0d0d);
+  border:1px solid #3a2c13;
+  border-radius:25px;
+}
+
+.final-cta h2{
+  font-size:clamp(35px,6vw,55px);
+  margin:0 0 18px;
+}
+
+.final-cta p{
+  color:#aaa49b;
+  font-size:18px;
+  margin-bottom:30px;
 }
 
 /* CHECKOUT */
 
 .checkout{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.82);
-z-index:100;
-overflow:auto;
-padding:25px;
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.82);
+  z-index:100;
+  padding:15px;
+  overflow:auto;
 }
 
 .checkout.open{
-display:block;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .modal{
-max-width:550px;
-margin:40px auto;
-background:#11151d;
-border:1px solid #303640;
-border-radius:24px;
-padding:28px;
+  width:min(560px,100%);
+  background:#0d0d0d;
+  border:1px solid #393126;
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 20px 80px rgba(0,0,0,.7);
 }
 
 .close{
-float:right;
-border:0;
-background:#222;
-color:white;
-width:40px;
-height:40px;
-border-radius:50%;
-font-size:22px;
-cursor:pointer;
+  float:right;
+  background:none;
+  border:0;
+  color:#aaa;
+  font-size:30px;
+  cursor:pointer;
 }
 
 .modal h2{
-font-size:30px;
-margin-top:15px;
+  margin-top:5px;
+  font-size:29px;
 }
 
-.muted{
-color:#888;
+.form{
+  display:grid;
+  gap:11px;
+  margin-top:20px;
 }
 
-form{
-margin-top:25px;
+.form input,
+.form textarea{
+  width:100%;
+  padding:14px;
+  border:1px solid #302d28;
+  border-radius:10px;
+  background:#070707;
+  color:white;
+  font-size:15px;
+  outline:none;
 }
 
-input,textarea,select{
-width:100%;
-padding:15px;
-margin:8px 0 12px;
-border-radius:10px;
-border:1px solid #303640;
-background:#090b0f;
-color:white;
-font-size:16px;
-outline:none;
+.form input:focus,
+.form textarea:focus{
+  border-color:#b28a36;
 }
 
-textarea{
-min-height:100px;
-resize:vertical;
+.form textarea{
+  min-height:95px;
+  resize:vertical;
 }
 
 .total{
-background:#19150d;
-border:1px solid #6f5725;
-padding:17px;
-border-radius:12px;
-margin:15px 0 20px;
-display:flex;
-justify-content:space-between;
-font-size:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#15120d;
+  border:1px solid #332814;
+  padding:16px;
+  border-radius:10px;
+  margin-top:4px;
 }
+
+.total b{
+  color:#e2bd62;
+  font-size:20px;
+}
+
+.pay-btn{
+  width:100%;
+  margin-top:5px;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  color:#716d66;
+  border-top:1px solid #211f1b;
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* MOBILE */
 
 @media(max-width:800px){
 
-header{
-padding:15px 4%;
+  nav{
+    padding:0 4%;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .cart{
+    padding:11px 14px;
+    font-size:14px;
+  }
+
+  .hero{
+    padding:50px 5% 30px;
+  }
+
+  h1{
+    letter-spacing:-1px;
+  }
+
+  .lead{
+    font-size:17px;
+  }
+
+  .product-image{
+    height:400px;
+  }
+
+  .product-small-grid{
+    grid-template-columns:1fr;
+  }
+
+  .features,
+  .steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .product-bottom{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .product-bottom .buy{
+    width:100%;
+  }
 }
 
-.logo{
-font-size:19px;
-}
+@media(max-width:480px){
 
-.cart{
-padding:10px 13px;
-}
+  .top{
+    font-size:11px;
+  }
 
-.hero{
-padding:55px 5% 30px;
-}
+  nav{
+    min-height:66px;
+  }
 
-h1{
-font-size:46px;
-}
+  .logo{
+    font-size:18px;
+  }
 
-.subtitle{
-font-size:18px;
-}
+  .cart{
+    font-size:12px;
+    padding:10px;
+  }
 
-.new{
-font-size:42px;
-}
+  .hero{
+    padding-top:40px;
+  }
 
-.gallery{
-grid-template-columns:1fr;
-padding:0 5%;
-}
+  h1{
+    font-size:43px;
+  }
 
-.photo.big,
-.photo.small{
-min-height:auto;
-height:auto;
-}
+  .new{
+    font-size:38px;
+  }
 
-.photo img{
-height:auto;
-aspect-ratio:4/3;
-}
+  .product-image{
+    height:300px;
+  }
 
-.cards{
-grid-template-columns:1fr;
-}
+  .product-small .product-image{
+    height:300px;
+  }
 
-.section h2,
-.order h2{
-font-size:34px;
-}
+  .product-content{
+    padding:25px;
+  }
 
-.modal{
-margin:15px auto;
-padding:22px;
-}
+  .product-title{
+    font-size:28px;
+  }
+
+  .product-description{
+    font-size:16px;
+  }
+
+  .features,
+  .steps{
+    grid-template-columns:1fr;
+  }
+
+  .feature{
+    min-height:auto;
+  }
+
+  .final-cta{
+    margin-left:5%;
+    margin-right:5%;
+    padding:50px 20px;
+  }
+
+  .buy{
+    width:100%;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<div class="logo">RACING<span>RIG</span> INDIA</div>
-<div class="cart">🛒 Cart (0)</div>
-</header>
+<div class="top">
+🚚 Pan-India Delivery • Secure Checkout • Order Confirmation
+</div>
+
+<nav>
+  <div class="logo">RACING<span>RIG</span> INDIA</div>
+  <div class="cart">🛒 Cart (0)</div>
+</nav>
 
 <main>
 
-<section class="hero">
+<!-- HERO -->
 
-<div class="badge">🏁 PREMIUM RACING SIMULATOR</div>
+<div class="hero">
 
-<h1>Gear built for the race you're chasing</h1>
+  <div class="hero-inner">
 
-<p class="subtitle">
-Premium racing simulator cockpit setup with racing seat,
-steering wheel, pedals and shifter — designed for an immersive
-gaming experience.
-</p>
+    <span class="tag">🏁 PREMIUM RACING SIMULATOR</span>
 
-<div class="price">
-<span class="old">₹69,999</span>
-<span class="new">₹59,999</span>
-<span class="save">SAVE 14%</span>
-</div>
+    <h1>
+      Gear built for the<br>
+      race you're chasing
+    </h1>
 
-<button class="buy" onclick="openCheckout()">
-BUY NOW — ₹59,999
-</button>
+    <p class="lead">
+      Premium racing simulator cockpit setup with racing seat,
+      steering wheel, pedals and shifter — designed for an
+      immersive gaming experience.
+    </p>
 
-<p class="note">
-Product specifications, included components and delivery terms
-should match your actual inventory.
-</p>
+    <div class="price">
+      <span class="old">₹69,999</span>
+      <span class="new">₹59,999</span>
+      <span class="save">SAVE 14%</span>
+    </div>
 
-</section>
+    <button class="btn buy" onclick="openCheckout()">
+      BUY NOW — ₹59,999
+    </button>
 
+    <p class="note">
+      Product specifications, included components and delivery
+      terms should match your actual inventory.
+    </p>
 
-<section class="gallery">
-
-<div class="photo big">
-<span class="number">01</span>
-<span class="premium">PREMIUM</span>
-<img src="/setup1.jpg" alt="Racing Simulator Cockpit">
-</div>
-
-<div class="photo small">
-<span class="number">02</span>
-<span class="premium">PREMIUM</span>
-<img src="/setup2.jpg" alt="Racing Simulator Setup">
-</div>
-
-<div class="photo small">
-<span class="number">03</span>
-<span class="premium">PREMIUM</span>
-<img src="/setup3.jpg" alt="PS5 Racing Setup">
-</div>
-
-</section>
-
-
-<section class="section">
-
-<h2>What's Included</h2>
-
-<div class="cards">
-
-<div class="card">
-<div class="icon">🏎️</div>
-<h3>Racing Seat</h3>
-<p>Comfortable cockpit-style racing seat for extended gaming sessions.</p>
-</div>
-
-<div class="card">
-<div class="icon">🎮</div>
-<h3>Steering & Pedals</h3>
-<p>Racing controls designed for an immersive driving experience.</p>
-</div>
-
-<div class="card">
-<div class="icon">⚙️</div>
-<h3>Gear Shifter</h3>
-<p>Manual-style gear shifting setup for realistic racing gameplay.</p>
-</div>
+  </div>
 
 </div>
 
-</section>
 
+<!-- PRODUCTS -->
 
-<section class="section">
+<section class="products-section">
 
-<h2>Premium Setup</h2>
+  <div class="section-label">
+    RACINGRIG • PREMIUM GEAR
+  </div>
 
-<div class="photo" style="height:420px;">
-<span class="number">04</span>
-<span class="premium">RACINGRIG INDIA</span>
-<img src="/setup4.jpg" alt="Premium Racing Simulator">
-</div>
+  <h2 class="section-heading">
+    Choose your racing setup
+  </h2>
 
-</section>
+  <div class="products">
 
+    <!-- PRODUCT 01 -->
 
-<section class="order">
+    <div class="product-card">
 
-<h2>Ready to race?</h2>
+      <div class="product-image-wrap">
 
-<p>
-Choose your RacingRig setup and continue to secure checkout.
-</p>
+        <img
+          class="product-image"
+          src="/setup1.jpg"
+          alt="Premium Racing Simulator Cockpit"
+        >
 
-<button class="buy" onclick="openCheckout()">
-BUY NOW — ₹59,999
-</button>
+        <div class="badge-number">01</div>
+        <div class="badge-premium">PREMIUM</div>
 
-</section>
+      </div>
 
-</main>
+      <div class="product-content">
 
+        <div class="category">
+          SIM RACING
+        </div>
 
-<footer>
-© 2026 RacingRig India<br>
-Secure Checkout • Order Confirmation • Shipping & Returns
-</footer>
+        <h2 class="product-title">
+          Apex Cockpit — Pro
+        </h2>
 
+        <p class="product-description">
+          Full sim rig with force-feedback wheel, pedal set,
+          shifter and reclining racing seat. Curved-monitor
+          mount included.
+        </p>
 
-<!-- CHECKOUT -->
+        <div class="product-bottom">
 
-<div id="checkout" class="checkout">
+          <div class="product-price">
+            ₹59,999
+          </div>
 
-<div class="modal">
+          <button class="btn buy" onclick="openCheckout()">
+            Buy Now
+          </button>
 
-<button class="close" onclick="closeCheckout()">×</button>
+        </div>
 
-<h2>Delivery Details</h2>
+      </div>
 
-<p class="muted">
-Racing Simulator Cockpit
-</p>
+    </div>
 
-<div class="total">
-<span>Total Amount</span>
-<strong>₹59,999</strong>
-</div>
 
-<form id="orderForm">
+    <!-- PRODUCT 02 + 03 -->
 
-<input
-name="name"
-required
-placeholder="पूरा नाम">
+    <div class="product-small-grid">
 
-<input
-name="phone"
-required
-type="tel"
-placeholder="मोबाइल नंबर">
+      <div class="product-card product-small">
 
-<input
-name="email"
-required
-type="email"
-placeholder="ईमेल पता">
+        <div class="product-image-wrap">
 
-<input
-name="pin"
-required
-inputmode="numeric"
-placeholder="PIN Code">
+          <img
+            class="product-image"
+            src="/setup2.jpg"
+            alt="Apex Cockpit GT Edition"
+          >
 
-<input
-name="city"
-required
-placeholder="शहर">
+          <div class="badge-number">02</div>
+          <div class="badge-premium">PREMIUM</div>
 
-<input
-name="state"
-required
-placeholder="राज्य">
+        </div>
 
-<textarea
-name="address"
-required
-placeholder="पूरा डिलीवरी पता"></textarea>
+        <div class="product-content">
 
-<button class="buy" type="submit">
-PAY ₹59,999 SECURELY
-</button>
+          <div class="category">
+            SIM RACING • GT EDITION
+          </div>
 
-</form>
+          <h2 class="product-title">
+            Apex Cockpit — GT Edition
+          </h2>
 
-<p class="muted" style="font-size:13px;margin-top:18px;">
-भुगतान Razorpay के सुरक्षित Checkout के माध्यम से किया जाएगा।
-</p>
+          <p class="product-description">
+            Track-ready rig with bucket seat, display mount
+            and racing wheel setup.
+          </p>
 
-</div>
-</div>
+          <div class="product-bottom">
 
+            <div class="product-price">
+              ₹72,999 <small>onwards</small>
+            </div>
 
-<script>
+            <button class="btn buy" onclick="openCheckout()">
+              Buy Now
+            </button>
 
-const checkout =
-document.getElementById("checkout");
+          </div>
 
-function openCheckout(){
-checkout.classList.add("open");
-}
+        </div>
 
-function closeCheckout(){
-checkout.classList.remove("open");
-}
+      </div>
 
-document.getElementById("orderForm")
-.addEventListener("submit", async function(e){
 
-e.preventDefault();
+      <div class="product-card product-small">
 
-const form = new FormData(e.target);
+        <div class="product-image-wrap">
 
-const data = {
-name: form.get("name"),
-phone: form.get("phone"),
-email: form.get("email"),
-pin: form.get("pin"),
-city: form.get("city"),
-state: form.get("state"),
-address: form.get("address")
-};
+          <img
+            class="product-image"
+            src="/setup3.jpg"
+            alt="PlayStation 5 Slim"
+          >
 
-try{
+          <div class="badge-number">03</div>
+          <div class="badge-premium">PREMIUM</div>
 
-const response = await fetch("/api/create-order",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(data)
-});
+        </div>
 
-const result = await response.json();
+        <div class="product-content">
 
-if(!response.ok){
-throw new Error(result.error || "Order बनाने में समस्या हुई");
-}
+          <div class="category">
+            CONSOLE
+          </div>
 
-if(result.demo){
+          <h2 class="product-title">
+            PlayStation 5 Slim
+          </h2>
 
-alert(
-"Test Order बन गया है। Razorpay Test Keys उपलब्ध होने पर Checkout शुरू किया जाएगा।"
-);
+          <p class="product-description">
+            PS5 console with DualSense controller.
+            Product configuration and warranty should match
+            your actual inventory.
+          </p>
 
-return;
-}
+          <div class="product-bottom">
 
-const options = {
+            <div class="product-price">
+              ₹51,999
+            </div>
 
-key: result.key,
+            <button class="btn buy" onclick="openCheckout()">
+              Buy Now
+            </button>
 
-amount: result.amount,
+          </div>
 
-currency: result.currency || "INR",
+        </div>
 
-name: "RacingRig India",
+      </div>
 
-description: "Premium Racing Simulator",
+    </div>
 
-order_id: result.id,
 
-prefill:{
-name:data.name,
-email:data.email,
-contact:data.phone
-},
+    <!-- PRODUCT 04 -->
 
-theme:{
-color:"#d2a94f"
-},
+    <div class="product-card product-small">
 
-handler: async function(payment){
+      <div class="product-image-wrap">
 
-try{
+        <img
+          class="product-image"
+          src="/setup4.jpg"
+          alt="PS5 Gaming Setup"
+        >
 
-const verifyResponse =
-await fetch("/api/verify-payment",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify(payment)
-});
+        <div class="badge-number">04</div>
+        <div class="badge-premium">PREMIUM</div>
 
-const verify =
-await verifyResponse.json();
+      </div>
 
-if(verify.success){
+      <div class="product-content">
 
-alert(
-"भुगतान सफल रहा! Order ID: " +
-(verify.orderId || result.id)
-);
+        <div class="category">
+          GAMING SETUP
+        </div>
 
-closeCheckout();
-
-}else{
-
-alert(
-"भुगतान सत्यापन में समस्या हुई। कृपया Support से संपर्क करें।"
-);
-
-}
-
-}catch(error){
-
-alert(
-"Payment verification में समस्या हुई।"
-);
-
-}
-
-},
-
-modal:{
-ondismiss:function(){
-console.log("Razorpay Checkout बंद किया गया");
-}
-}
-
-};
-
-const razorpay =
-new Razorpay(options);
-
-razorpay.open();
-
-}catch(error){
-
-alert(
-error.message || "Payment शुरू नहीं हो पाया।"
-);
-
-}
-
-});
-
-</script>
-
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
-</body>
-</html>
+        <h2 class="product-title">
+          PS5 Gaming Setup
+        </h2>
